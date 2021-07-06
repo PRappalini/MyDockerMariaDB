@@ -1,7 +1,12 @@
 FROM mariadb:10.1.22
 
-ENV MYSQL_ROOT_PASSWORD admin123
-ENV MYSQL_DATABASE curso
+ENV MYSQL_ROOT_PASSWORD_ORIG admin123
+ENV MYSQL_DATABASE_ORIG curso
 
-ADD ./Datos.sql /docker-entrypoint-initdb.d/cargaDatos.sql
+ENV MYSQL_DATABASE=RayuelaDB
+ENV MYSQL_ROOT_PASSWORD=PaSsWoRd
+ENV MYSQL_USER=DevUser
+ENV MYSQL_PASSWORD=PaSsWoRd
+
+ADD ./RayuelaDB.sql /docker-entrypoint-initdb.d/RayuelaDB.sql
 
